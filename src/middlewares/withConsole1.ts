@@ -6,6 +6,7 @@ export const withConsole1: MiddlewareFactory = next => {
   return async (request: NextRequest, _next: NextFetchEvent) => {
     const res = await next(request, _next);
     
+    console.log('Start1 in ',request.nextUrl.pathname,new Date().toISOString());
     await sleep(2000);
     console.log('Done1 in ',request.nextUrl.pathname,new Date().toISOString());
 
